@@ -29,7 +29,7 @@ public class TokenProvider implements InitializingBean {
     private Key key;
 
     public TokenProvider(
-            @Value("${jwt.secret}") String secret,
+                    @Value("${jwt.secret}") String secret,
             @Value("${jwt.token-validity-in-seconds}") long tokenValidityInSeconds) {
         this.secret = secret;
         this.tokenValidityInMilliseconds = tokenValidityInSeconds * 1000;
@@ -51,7 +51,8 @@ public class TokenProvider implements InitializingBean {
         Date validity = new Date(now + this.tokenValidityInMilliseconds);
 
         return Jwts.builder()
-                .setSubject(authentication.getName())
+                .setSubject(authentication.getName()) //Payload에 유저 네임 저장
+                .setIssuer("LeeJunSeok") //토큰 발급자 iss 지정
                 .claim(AUTHORITIES_KEY, authorities) // 정보 저장
                 .signWith(key, SignatureAlgorithm.HS512) // 사용할 암호화 알고리즘과 , signature 에 들어갈 secret값 세팅
                 .setExpiration(validity) // set Expire Time 해당 옵션 안넣으면 expire안함
