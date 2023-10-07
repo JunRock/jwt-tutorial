@@ -1,4 +1,4 @@
-package com.example.jwttutioral.config;
+package com.example.jwttutioral.auth.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

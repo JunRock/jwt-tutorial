@@ -1,4 +1,4 @@
-package com.example.jwttutioral.service;
+package com.example.jwttutioral.auth.service;
 
 import com.example.jwttutioral.entity.User;
 import com.example.jwttutioral.repository.UserRepository;
@@ -10,7 +10,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -35,7 +34,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         }
 
         List<GrantedAuthority> grantedAuthorities = user.getAuthorities().stream()
-                .map(authority -> new SimpleGrantedAuthority(authority.getAuthorityName()))
+                .map(authority -> new SimpleGrantedAuthority(authority.toString()))
                 .collect(Collectors.toList());
         System.out.println(grantedAuthorities);
 

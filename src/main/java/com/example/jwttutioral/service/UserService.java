@@ -1,10 +1,10 @@
 package com.example.jwttutioral.service;
 
-import com.example.jwttutioral.dto.UserDto;
+import com.example.jwttutioral.auth.dto.UserDto;
 import com.example.jwttutioral.entity.Authority;
 import com.example.jwttutioral.entity.User;
 import com.example.jwttutioral.repository.UserRepository;
-import com.example.jwttutioral.utils.SecurityUtil;
+import com.example.jwttutioral.auth.utils.SecurityUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -28,16 +28,16 @@ public class UserService {
 
         // 가입되어 있지 않은 회원이면,
         // 권한 정보 만들고
-       Authority authority = Authority.builder()
+       /*Authority authority = Authority.builder()
                 .authorityName("ROLE_USER")
-                .build();
+                .build();*/
 
         // 유저 정보를 만들어서 save
         User user = User.builder()
                 .username(userDto.getUsername())
                 .password(passwordEncoder.encode(userDto.getPassword()))
                 .nickname(userDto.getNickname())
-                .authorities(Collections.singleton(authority))
+                .authorities(Collections.singleton(Authority.ROLE_USER))
                 .activated(true)
                 .build();
 

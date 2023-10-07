@@ -1,6 +1,5 @@
-package com.example.jwttutioral.dto;
+package com.example.jwttutioral.auth.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sun.istack.NotNull;
 import lombok.*;
 
@@ -11,18 +10,13 @@ import javax.validation.constraints.Size;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserDto {
+public class LoginDto {
 
     @NotNull
     @Size(min = 3, max = 50)
     private String username;
 
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @NotNull
     @Size(min = 3, max = 100)
     private String password;
-
-    @NotNull
-    @Size(min = 3, max = 50)
-    private String nickname;
 }

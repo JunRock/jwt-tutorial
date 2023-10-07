@@ -30,10 +30,7 @@ public class User {
     @Column(name = "activated")
     private boolean activated;
 
-    @ManyToMany
-    @JoinTable(
-            name = "user_authority",
-            joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "user_id")},
-            inverseJoinColumns = {@JoinColumn(name = "authority_name", referencedColumnName = "authority_name")})
+    @Enumerated(EnumType.STRING)
+    @ElementCollection //컬렉션 객체임을 알려줌
     private Set<Authority> authorities;
 }

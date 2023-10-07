@@ -1,4 +1,4 @@
-package com.example.jwttutioral.config;
+package com.example.jwttutioral.auth.jwt;
 
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;

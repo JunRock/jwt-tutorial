@@ -1,4 +1,4 @@
-package com.example.jwttutioral.dto;
+package com.example.jwttutioral.auth.dto;
 
 import lombok.*;
 

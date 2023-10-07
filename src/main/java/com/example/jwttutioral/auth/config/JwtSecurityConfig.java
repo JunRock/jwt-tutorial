@@ -1,7 +1,7 @@
-package com.example.jwttutioral.config;
+package com.example.jwttutioral.auth.config;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import com.example.jwttutioral.auth.jwt.JwtFilter;
+import com.example.jwttutioral.auth.jwt.TokenProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.config.annotation.SecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
